@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="table-title">
+      <div class="row">
+        <div class="col-md-12">
+            <h2>Administración de <b>Empleados</b></h2>
+        </div>
+
+      </div>
+
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addEmpleModal">
+                Agregar
+            </button>
+            <button type="button" class="btn btn-danger" data-toggle="modal">
+                Eliminar
+            </button>
+        </div>
+
+  </div>
+
+  <div *ngIf="showEmp; else elseBlock">
+      <table class="table table-bordered">
+
+        <thead>
+          <tr>
+            <th>Codigo</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+            <th>Email</th>
+            <th>
+              Acciones
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+
+                <tr *ngFor="let item of empleados;">
+                    <td width="20">{{item.codEmp}}</td>
+                    <td width="20">{{item.nombres}}</td>
+                    <td>{{item.apellidos}}</td>
+                    <td width="20">{{item.edad}}</td>
+                    <td>{{item.email}}</td>
+                    <td width="250">
+
+                        <button type="button" class="btn btn-primary"  >Editar</button>
+
+                        <button type="button" class="btn btn-danger"  >Eliminar</button>
+
+                    </td>
+                </tr>
+        </tbody>
+      </table>
+  </div>
+  <ng-template #elseBlock>
+      <table class="table table-bordered">
+
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Edad</th>
+              <th>Email</th>
+              <th>
+                Acciones
+              </th>
+            </tr>
+          </thead>
+          <tbody><tr><td colspan="6">No hay Registros de Empleados.</td></tr></tbody>
+      </table>
+  </ng-template>
+</div>
